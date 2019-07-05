@@ -8,5 +8,5 @@ export type ProviderProps = {
     children: React.ReactNode;
     value: string;
     name: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>, values: string[]) => void;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>, value: string) => void;
 };

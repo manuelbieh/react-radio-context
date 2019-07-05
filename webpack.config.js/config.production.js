@@ -1,10 +1,11 @@
 const path = require('path');
 const camelCase = require('uppercamelcase');
 const config = require('./config.base');
+console.log(camelCase(require(path.resolve(__dirname, '..', 'package.json')).name));
 
 module.exports = Object.assign({}, config, {
     entry: {
-        index: './src',
+        index: './src/index',
     },
     mode: 'production',
     resolve: {
@@ -39,7 +40,7 @@ module.exports = Object.assign({}, config, {
         libraryTarget: 'umd',
         library: camelCase(require(path.resolve(__dirname, '..', 'package.json')).name),
         filename: '[name].js',
-        // this is a weird hack to make the cjs build work in node
+        // this is a weird hack to make the umd build work in node
         // https://github.com/webpack/webpack/issues/6525#issuecomment-417580843
         globalObject: 'typeof self !== "undefined" ? self : this',
     },
