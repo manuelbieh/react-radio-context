@@ -97,7 +97,7 @@ Since this component uses React's Context API, `<Radio>` elements can by anywher
 </RadioGroup>
 ```
 
-## Props
+## Components
 
 ### `<RadioGroup />`
 
