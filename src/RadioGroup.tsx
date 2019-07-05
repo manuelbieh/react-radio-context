@@ -1,13 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Provider } from './context';
+import { ProviderProps } from './types';
 
-type Props = {
-    children: React.ReactNode;
-    onChange: any;
-    value: string;
-};
-
-const RadioGroup = ({ children, onChange, value: passedValue }: Props) => {
+const RadioGroup = ({ children, name, onChange, value: passedValue }: ProviderProps) => {
     const [value, setValue] = useState(passedValue);
 
     useEffect(() => {
@@ -38,7 +33,7 @@ const RadioGroup = ({ children, onChange, value: passedValue }: Props) => {
             value,
             name,
         }),
-        [changeHandler, value]
+        [changeHandler, name, value]
     );
 
     return <Provider value={contextValue}>{children}</Provider>;
