@@ -15,7 +15,7 @@ const RadioGroup = ({ children, onChange, value: passedValue }: Props) => {
     }, [passedValue]);
 
     const changeHandler = useCallback(
-        (event) => {
+        (event: React.ChangeEvent<HTMLInputElement>) => {
             event.persist();
             const {
                 target: { checked, value },
